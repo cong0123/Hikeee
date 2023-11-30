@@ -1,0 +1,177 @@
+<!-- activity_detail.xml -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên chuyến đi:"/>
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Địa điểm:"/>
+
+        <EditText
+            android:id="@+id/locationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngày:"/>
+
+        <EditText
+            android:id="@+id/dateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+
+
+        <!-- Thêm các EditText và dấu gạch ngang cho các trường khác tương tự -->
+
+        <TextView
+            android:id="@+id/lengthTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chiều dài (m):"/>
+
+        <EditText
+            android:id="@+id/lengthEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+
+
+        <TextView
+            android:id="@+id/difficultyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Độ khó:"/>
+
+        <EditText
+            android:id="@+id/difficultyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/parkingAreaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Khu đậu xe:"/>
+
+        <EditText
+            android:id="@+id/parkingAreaEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/restingSpotsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nơi nghỉ ngơi:"/>
+
+        <EditText
+            android:id="@+id/restingSpotsEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/ratingTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá:"/>
+
+        <EditText
+            android:id="@+id/ratingEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+
+
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả:"/>
+
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"/>
+
+
+        <!-- activity_details.xml -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
+
+            <!-- Nút Quan sát -->
+            <Button
+                android:id="@+id/addObservationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thêm Quan sát"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Nút Lưu -->
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lưu"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Nút Xóa -->
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xóa"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

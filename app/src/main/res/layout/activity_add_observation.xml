@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/hikeIdTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chuyến Đi ID: "
+        android:visibility="gone"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editTextContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hikeIdTextView"
+        android:hint="Nội dung quan sát"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:focusable="false"
+
+        android:layout_below="@id/editTextContent"
+        android:hint="Thời gian quan sát"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextWeather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTime"
+        android:hint="Thời tiết"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextTrailCondition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextWeather"
+        android:hint="Điều kiện đường mòn"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/saveObservationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTrailCondition"
+        android:text="Lưu"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>
