@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
@@ -27,7 +29,7 @@ public class EditObservationActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_observation);
-        setTitle("Chỉnh sửa quan sát");
+        setTitle("Edit Observation");
         contentEditText = findViewById(R.id.editContent);
         timeEditText = findViewById(R.id.editTime);
         timeEditText.setOnClickListener(v -> showDatePickerDialog());
@@ -46,7 +48,10 @@ public class EditObservationActivity extends AppCompatActivity {
             weatherEditText.setText(observation.getWeather());
             trailConditionEditText.setText(observation.getTrailCondition());
         }
-
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         // Sự kiện khi nhấn nút lưu
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +59,17 @@ public class EditObservationActivity extends AppCompatActivity {
                 updateObservation();
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Xử lý khi nút "Home" được nhấn
+                finish(); // Đóng Activity, quay lại trang trước đó
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     private void showDatePickerDialog() {
         // Lấy ngày hiện tại

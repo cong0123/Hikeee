@@ -33,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        setTitle("Chi tiết");
+        setTitle("Detail");
         // Ánh xạ các TextView và EditText trong layout
         editTextArray = new EditText[]{
                 findViewById(R.id.nameEditText),
@@ -95,18 +95,17 @@ public class DetailActivity extends AppCompatActivity {
             editTextArray[4].setOnClickListener(v -> showDifficultyDialog());
 
             editTextArray[6].setFocusable(false);
-            editTextArray[6].setOnClickListener(v -> showYesNoDialog("Khu đậu xe", editTextArray[6]));
+            editTextArray[6].setOnClickListener(v -> showYesNoDialog("Parking area", editTextArray[6]));
             editTextArray[7].setFocusable(false);
             editTextArray[7].setOnClickListener(v -> showRatingDialog(editTextArray[7]));
 
 
             editTextArray[8].setFocusable(false);
-            editTextArray[8].setOnClickListener(v -> showYesNoDialog("Nơi nghỉ ngơi", editTextArray[8]));
+            editTextArray[8].setOnClickListener(v -> showYesNoDialog("Resting place", editTextArray[8]));
 
             saveButton.setOnClickListener(v -> saveHikeInfo());
 
             deleteButton.setOnClickListener(v -> showDeleteConfirmationDialog());
-            // Thiết lập nút quay về trang Home trên thanh tiêu đề
             ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true);
@@ -145,11 +144,11 @@ public class DetailActivity extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == android.R.id.home) {
-            // Xử lý khi người dùng nhấn nút quay lại
+
             backToHome();
             return true;
         } else if (itemId == R.id.action_view_observations) {
-            // Xử lý khi người dùng nhấn nút quan sát
+
             Intent intent = new Intent(DetailActivity.this, ObservationActivity.class);
             intent.putExtra("HikeId", hike.getId());
             startActivity(intent);
@@ -165,14 +164,14 @@ public class DetailActivity extends AppCompatActivity {
     private void backToHome() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-        finish(); // Đóng hiện tại Activity để tránh quay lại nó khi nhấn nút "Back"
+        finish();
     }
 
     private void showDeleteConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Bạn có muốn xóa chuyến đi này không?")
                 .setPositiveButton("Có", (dialog, id) -> {
-                    // Người dùng đã chọn "Có", thực hiện xóa và gửi thông báo về trang chủ để cập nhật dữ liệu
+
                     deleteHike();
                     sendResultToHome();
                 })
@@ -199,12 +198,12 @@ public class DetailActivity extends AppCompatActivity {
     }
     private void showRatingDialog(EditText editText) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Chọn đánh giá");
+        builder.setTitle("Rating");
 
         final String[] ratingOptions = {"0.5", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "4.5", "5.0"};
 
         builder.setItems(ratingOptions, (dialog, which) -> {
-            // Xử lý khi người dùng chọn một lựa chọn
+
             String selectedRating = ratingOptions[which];
             editText.setText(selectedRating);
         });
@@ -225,7 +224,6 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void displayInfo(TextView textView, EditText editText, String fieldName, String fieldValue) {
-        // Hiển thị tên trường trên TextView và dữ liệu trên EditText
         textView.setText(fieldName + " : ");
         editText.setText(fieldValue);
         textView.setVisibility(View.VISIBLE);
@@ -240,7 +238,6 @@ public class DetailActivity extends AppCompatActivity {
 
         HikeDbHelper dbHelper = new HikeDbHelper(this);
 
-        // Kiểm tra nếu là chuyến đi mới thì thêm vào cơ sở dữ liệu, ngược lại cập nhật
         if (hike.getId() == 0) {
             long insertedId = dbHelper.addHike(hike);
             hike.setId(insertedId);
@@ -248,32 +245,30 @@ public class DetailActivity extends AppCompatActivity {
             dbHelper.updateHike(hike);
         }
 
-        // Gửi thông báo về trang chủ để cập nhật dữ liệu
         sendResultToHome();
     }
 
 
     private String getFieldName(int index) {
-        // Hàm trả về tên của trường tương ứng với chỉ mục
         switch (index) {
             case 0:
-                return "Tên chuyến đi";
+                return "Hike Name";
             case 1:
-                return "Địa điểm";
+                return "Location";
             case 2:
-                return "Ngày";
+                return "Date";
             case 3:
-                return "Chiều dài (m)";
+                return "Length (m)";
             case 4:
-                return "Độ khó";
+                return "Difficulty";
             case 5:
-                return "Mô tả";
+                return "Description";
             case 6:
-                return "Khu đậu xe";
+                return "Parking area";
             case 7:
-                return "Đánh giá";
+                return "Rating";
             case 8:
-                return "Nơi nghỉ ngơi";
+                return "Resting place";
             default:
                 return "";
         }
@@ -296,12 +291,13 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void showDifficultyDialog() {
-        final String[] difficultyLevels = {"Dễ", "Vừa phải", "Khó", "Chuyên gia"};
+        final String[] difficultyLevels = {"Easy", "Normal", "Hard", "Professional"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Chọn độ khó");
+        builder.setTitle("Choose difficulty");
         builder.setItems(difficultyLevels, (dialog, which) -> {
-            // Xử lý khi người dùng chọn một mức độ khó
+
+
             String selectedDifficulty = difficultyLevels[which];
             editTextArray[4].setText(selectedDifficulty);
         });

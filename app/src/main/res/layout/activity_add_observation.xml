@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/hikeIdTextView"
-        android:hint="Nội dung quan sát"
+        android:hint="Content"
         android:layout_marginTop="16dp"/>
 
     <EditText
@@ -28,7 +28,7 @@
         android:focusable="false"
 
         android:layout_below="@id/editTextContent"
-        android:hint="Thời gian quan sát"
+        android:hint="Time"
         android:layout_marginTop="16dp"/>
 
     <EditText
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextTime"
-        android:hint="Thời tiết"
+        android:hint="Weather"
         android:layout_marginTop="16dp"/>
 
     <EditText
@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextWeather"
-        android:hint="Điều kiện đường mòn"
+        android:hint="Trail Condition"
         android:layout_marginTop="16dp"/>
 
     <Button
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextTrailCondition"
-        android:text="Lưu"
+        android:text="Save"
         android:layout_marginTop="16dp"/>
 
 </RelativeLayout>

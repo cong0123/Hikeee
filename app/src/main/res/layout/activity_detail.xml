@@ -16,7 +16,7 @@
             android:id="@+id/nameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tên chuyến đi:"/>
+            android:text="Hike name:"/>
 
         <EditText
             android:id="@+id/nameEditText"
@@ -30,7 +30,7 @@
             android:id="@+id/locationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Địa điểm:"/>
+            android:text="Location:"/>
 
         <EditText
             android:id="@+id/locationEditText"
@@ -43,7 +43,7 @@
             android:id="@+id/dateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ngày:"/>
+            android:text="Date:"/>
 
         <EditText
             android:id="@+id/dateEditText"
@@ -60,7 +60,7 @@
             android:id="@+id/lengthTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chiều dài (m):"/>
+            android:text="Length (m):"/>
 
         <EditText
             android:id="@+id/lengthEditText"
@@ -75,7 +75,7 @@
             android:id="@+id/difficultyTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Độ khó:"/>
+            android:text="Difficulty:"/>
 
         <EditText
             android:id="@+id/difficultyEditText"
@@ -88,7 +88,7 @@
             android:id="@+id/parkingAreaTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Khu đậu xe:"/>
+            android:text="Parking area:"/>
 
         <EditText
             android:id="@+id/parkingAreaEditText"
@@ -101,7 +101,7 @@
             android:id="@+id/restingSpotsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nơi nghỉ ngơi:"/>
+            android:text="Resting place:"/>
 
         <EditText
             android:id="@+id/restingSpotsEditText"
@@ -114,7 +114,7 @@
             android:id="@+id/ratingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đánh giá:"/>
+            android:text="Rating:"/>
 
         <EditText
             android:id="@+id/ratingEditText"
@@ -130,7 +130,7 @@
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mô tả:"/>
+            android:text="Description:"/>
 
         <EditText
             android:id="@+id/descriptionEditText"
@@ -153,7 +153,7 @@
                 android:id="@+id/addObservationButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thêm Quan sát"
+                android:text="Add observation"
                 android:layout_marginEnd="8dp"/>
 
             <!-- Nút Lưu -->
@@ -161,7 +161,7 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lưu"
+                android:text="Save"
                 android:layout_marginEnd="8dp"/>
 
             <!-- Nút Xóa -->
@@ -169,7 +169,7 @@
                 android:id="@+id/deleteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xóa"/>
+                android:text="Delete"/>
 
         </LinearLayout>
 

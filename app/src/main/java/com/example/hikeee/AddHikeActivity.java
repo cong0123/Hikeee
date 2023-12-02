@@ -43,7 +43,7 @@ public class AddHikeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_hike);
-        setTitle("Thêm chuyến đi");
+        setTitle("Add Hike");
         hikeDbHelper = new HikeDbHelper(this);
 
         nameEditText = findViewById(R.id.editTextName);
@@ -116,7 +116,7 @@ public class AddHikeActivity extends AppCompatActivity {
         String difficulty = difficultyEditText.getText().toString();
 
         if (name.isEmpty() || location.isEmpty() || date.isEmpty() || length.isEmpty() || difficulty.isEmpty()) {
-            Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please complete all information", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -152,7 +152,7 @@ public class AddHikeActivity extends AppCompatActivity {
                         String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
                         dateEditText.setText(selectedDate);
                     } else {
-                        Toast.makeText(AddHikeActivity.this, "Vui lòng chọn ngày hôm nay hoặc một ngày trong tương lai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddHikeActivity.this, "Please select current or future date", Toast.LENGTH_SHORT).show();
                     }
                 }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
 
@@ -161,8 +161,8 @@ public class AddHikeActivity extends AppCompatActivity {
     }
 
     private void showDifficultyDialog() {
-        String[] difficultyLevels = {"Dễ", "Vừa phải", "Khó", "Chuyên gia"};
-        showListDialog("Chọn mức độ", difficultyLevels, difficultyEditText);
+        String[] difficultyLevels = {"Easy", "Normal", "Hard", "Professional"};
+        showListDialog("Choose difficulty", difficultyLevels, difficultyEditText);
     }
 
     private void showListDialog(String title, String[] listItems, EditText targetEditText) {

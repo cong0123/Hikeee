@@ -6,10 +6,12 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CompassActivity extends AppCompatActivity implements SensorEventListener {
@@ -18,18 +20,32 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     private float[] mGravity = new float[3];
     private float[] mGeomagnetic = new float[3];
     private float azimuth = 0f;
-    private float currentAzimuth = 0f;  // Sửa lỗi chính tả
+    private float currentAzimuth = 0f;
     private SensorManager mSensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compass);
-        setTitle("La bàn");
+        setTitle("Compass");
         imageView = findViewById(R.id.compassImageView);
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Xử lý khi nút "Home" được nhấn
+                finish(); // Đóng Activity, quay lại trang trước đó
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();

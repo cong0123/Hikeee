@@ -85,10 +85,10 @@ public class ObservationAdapter extends RecyclerView.Adapter<ObservationAdapter.
         }
 
         void bind(Observation observation) {
-            contentTextView.setText("Nội dung: " + observation.getContent());
-            timeTextView.setText("Thời gian: " + observation.getTime());
-            weatherTextView.setText("Thời tiết: " + observation.getWeather());
-            trailConditionTextView.setText("Điều kiện đường mòn: " + observation.getTrailCondition());
+            contentTextView.setText("Content: " + observation.getContent());
+            timeTextView.setText("Time: " + observation.getTime());
+            weatherTextView.setText("Weather: " + observation.getWeather());
+            trailConditionTextView.setText("Trail condition: " + observation.getTrailCondition());
         }
     }
 
@@ -102,16 +102,16 @@ public class ObservationAdapter extends RecyclerView.Adapter<ObservationAdapter.
     private void deleteObservation(Context context, Observation observation) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Xác nhận xóa");
-        builder.setMessage("Bạn có chắc chắn muốn xóa quan sát này?");
+        builder.setTitle("Confirm delete");
+        builder.setMessage("Do you want delete this observation?");
 
-        // Nút xác nhận (Yes)
+
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Xử lý logic xóa quan sát
+
                 ObservationDbHelper dbHelper = new ObservationDbHelper(context);
-                dbHelper.deleteObservation(observation.getId()); // Giả sử có một phương thức deleteObservation trong ObservationDbHelper
+                dbHelper.deleteObservation(observation.getId());
 
                 // Xóa quan sát khỏi danh sách
                 int position = observationList.indexOf(observation);

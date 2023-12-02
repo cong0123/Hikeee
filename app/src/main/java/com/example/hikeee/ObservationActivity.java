@@ -23,7 +23,7 @@ public class ObservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_observation);
-        setTitle("Quan sát");
+        setTitle("Observation");
         // Khởi tạo RecyclerView và Adapter
         recyclerView = findViewById(R.id.recyclerViewObservations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

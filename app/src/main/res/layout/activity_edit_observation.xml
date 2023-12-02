@@ -12,7 +12,7 @@
         android:id="@+id/editContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nội dung"/>
+        android:hint="Content"/>
 
     <EditText
         android:id="@+id/editTime"
@@ -20,17 +20,17 @@
         android:layout_height="wrap_content"
         android:inputType="none"
         android:focusable="false"
-        android:hint="Thời gian"/>
+        android:hint="Time"/>
     <EditText
         android:id="@+id/editWeather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Thời tiết"/>
+        android:hint="Weather"/>
     <EditText
         android:id="@+id/editTrailCondition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Điều kiện đường mòn"/>
+        android:hint="Trail condition"/>
 
     <!-- Thêm các trường nhập liệu khác cần thiết -->
 
@@ -38,6 +38,6 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lưu"/>
+        android:text="Save"/>
 
 </LinearLayout>

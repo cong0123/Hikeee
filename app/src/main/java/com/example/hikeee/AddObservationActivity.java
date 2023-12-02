@@ -36,14 +36,14 @@ public class AddObservationActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_observation);
-        setTitle("Thêm quan sát");
+        setTitle("Add Observation");
         observationDbHelper = new ObservationDbHelper(this);
 
         // Lấy ID của chuyến đi từ Intent
         Intent intent = getIntent();
         hikeId = intent.getLongExtra("HikeId", 0);
 
-        // Hiển thị ID chuyến đi trong giao diện
+
         TextView hikeIdTextView = findViewById(R.id.hikeIdTextView);
         hikeIdTextView.setText("Chuyến Đi ID: " + hikeId);
 
@@ -79,7 +79,7 @@ public class AddObservationActivity extends AppCompatActivity {
 
         // Tạo DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year1, monthOfYear, dayOfMonth) -> {
-            // Kiểm tra xem ngày đã chọn có phải là bây giờ hoặc tương lai không
+
             Calendar selectedCalendar = Calendar.getInstance();
             selectedCalendar.set(year1, monthOfYear, dayOfMonth);
 
@@ -93,7 +93,7 @@ public class AddObservationActivity extends AppCompatActivity {
                 showTimePickerDialog();
             } else {
 
-                 Toast.makeText(this, "Vui lòng chọn ngày hiện tại hoặc tương lai", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(this, "Please select a current or future date ", Toast.LENGTH_SHORT).show();
 
             }
         }, year, month, day);
@@ -110,21 +110,21 @@ public class AddObservationActivity extends AppCompatActivity {
 
         // Tạo TimePickerDialog
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, (view, hourOfDay, minute1) -> {
-            // Kiểm tra xem ngày giờ đã chọn có phải là bây giờ hoặc tương lai không
+
             Calendar selectedCalendar = Calendar.getInstance();
             selectedCalendar.set(selectedYear, selectedMonth, selectedDay, hourOfDay, minute1);
 
             if (selectedCalendar.after(calendar) || selectedCalendar.equals(calendar)) {
-                // Lưu giữ giờ/phút
+
                 selectedHour = hourOfDay;
                 selectedMinute = minute1;
 
-                // Hiển thị ngày và giờ đã chọn trên EditText
+
                 timeEditText.setText(String.format(Locale.getDefault(), "%02d/%02d/%d %02d:%02d",
                         selectedDay, selectedMonth + 1, selectedYear, selectedHour, selectedMinute));
             } else {
 
-               Toast.makeText(this, "Vui lòng chọn giờ hiện tại hoặc tương lai", Toast.LENGTH_SHORT).show();
+               Toast.makeText(this, "Please select a current or future time", Toast.LENGTH_SHORT).show();
             }
         }, hour, minute, true);
 
@@ -143,8 +143,8 @@ public class AddObservationActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(content) || TextUtils.isEmpty(time) || TextUtils.isEmpty(weather) || TextUtils.isEmpty(trailCondition)) {
 
-          Toast.makeText(this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
-            return; // Không tiếp tục xử lý nếu có trường trống
+          Toast.makeText(this, "Please enter complete information", Toast.LENGTH_SHORT).show();
+            return;
         }
 
 
@@ -152,7 +152,7 @@ public class AddObservationActivity extends AppCompatActivity {
         long observationId = observationDbHelper.addObservation(hikeId, content, time, weather, trailCondition);
 
 
-        // Quay về trang chi tiết chuyến đi
+
         Intent resultIntent = new Intent();
         setResult(RESULT_OK, resultIntent);
         finish();
